@@ -16,10 +16,7 @@ const kafka = new Kafka(config)
 
 const consumer = kafka.consumer({ groupId: String(GROUP_ID) })
 
-const producer = kafka.producer();
-
 async function run() {
-  await producer.connect()
   await consumer.connect()
   await consumer.subscribe({ topic: String(TOPIC) })
 
@@ -28,6 +25,7 @@ async function run() {
       const prefix = `${topic}[${partition} | ${message.offset}] / ${message.timestamp}`
 
       const payload = JSON.parse(String(message.value))
+      payload[1] = prefix
       const response = await axios.post(String(DISCORD_URL), {
         username: 'Captain Hook',
         content: JSON.stringify(payload, null, '\t')

@@ -3,12 +3,15 @@ import { NPMPackage } from 'interfaces'
 import { app } from "../index"
 import { publish } from '../ports/Kafka'
 
-const { TOPIC } = process.env
-
 export const handleMessage = (request: Request, response: Response, next: NextFunction) => {
-  app.emit(request.body.event, request.body)
-  response.status(200).json({ status: 'OK!' })
-  next()
+  try {
+    app.emit(request.body.event, request.body)
+    response.status(200).json({ status: 'OK!' })
+    next()
+  } catch (error) {
+    console.log(error)
+    next(error)
+  }
 }
 
 export const handlePublish = async (event: NPMPackage & Application) => {
@@ -16,15 +19,16 @@ export const handlePublish = async (event: NPMPackage & Application) => {
 
   try {
     const responses = await publish(
-      TOPIC,
+      event.event,
       [{
         key: event.time,
         value: JSON.stringify(event)
       }]
     )
 
-    console.log('Published message =>', { responses })
+    console.log('Recorded message =>', { responses })
   } catch (error) {
     console.error('Error publishing message =>', error)
+    return false
   }
 }

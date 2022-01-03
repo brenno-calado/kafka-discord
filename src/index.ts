@@ -16,7 +16,7 @@ const main = async () => {
   await setup()
 
   app.post('/hook', handleMessage)
-  app.on('package:publish', handlePublish)
+  app.on('npm-package', handlePublish)
 
   app.listen(PORT || 3000, () => { console.log(`Server listening on port ${PORT || 3000}`) })
 }

@@ -26,12 +26,10 @@ export const connect = async () => {
 export const publish = async (topic: string, message: object) => {
   const record: ProducerRecord = {
     topic,
-    compression: CompressionTypes.GZIP,
-    messages: [{ value: JSON.stringify(message)}]
+    messages: [{ value: JSON.stringify(message)}],
+    compression: CompressionTypes.GZIP
   }
-  const prod = KafkaBroker.producer(producerConfig)
-  await prod.connect()
-  return prod.send(record)
+  return producer.send(record)
 }
 
 export const consumer = async (groupId: string, topic: string) => {
