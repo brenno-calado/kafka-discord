@@ -5,4 +5,4 @@ RUN npm install
 COPY . /usr/src/app/
 RUN npm run build
 CMD ["npm", "start"]
-EXPOSE 3000:3000
+EXPOSE 3001:3001

@@ -9,7 +9,7 @@ const { KAFKA_CLIENT_ID, KAFKA_BROKERS, TOPIC, GROUP_ID, DISCORD_URL } = process
 const config: KafkaConfig = {
   brokers: [String(KAFKA_BROKERS)],
   clientId: KAFKA_CLIENT_ID,
-  logLevel: logLevel.WARN
+  logLevel: logLevel.INFO
 }
 
 const kafka = new Kafka(config)
