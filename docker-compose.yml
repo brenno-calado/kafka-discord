@@ -31,7 +31,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: kafka-mini-project:latest
+    image: brennosaudeid/kafka-discord:latest
     depends_on:
       - kafka
     ports:
@@ -43,7 +43,7 @@ services:
       TOPIC: npm-package
       PORT: 3000
   kafka-mini-consumer:
-    image: kafka-mini-consumer:latest
+    image: brennosaudeid/kafka-discord-consumer:latest
     depends_on:
       - kafka-mini-project
     ports:
