@@ -16,7 +16,18 @@ const main = async () => {
   await setup()
 
   app.post('/hook', handleMessage)
-  app.on('npm-package', handlePublish)
+  app.on('NPM_PACKAGE', handlePublish)
+
+  setInterval(() => {
+    console.log("sending npm package message...");
+
+    app.emit('NPM_PACKAGE', {
+      event: 'NPM_PACKAGE',
+      name: 'bastion',
+      version: '0.1.0',
+      time: new Date()
+    })
+  }, 1000)
 
   app.listen(PORT || 3000, () => { console.log(`Server listening on port ${PORT || 3000}`) })
 

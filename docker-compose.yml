@@ -37,10 +37,8 @@ services:
     ports:
       - 3000:3000
     environment:
-      KAFKA_CLIENT_ID: kafka-test
+      KAFKA_CLIENT_ID: DISCORD
       KAFKA_BROKERS: kafka:9094
-      GROUP_ID: npm
-      TOPIC: npm-package
       PORT: 3000
   kafka-mini-consumer:
     image: brennosaudeid/kafka-discord-consumer:latest
@@ -49,9 +47,9 @@ services:
     ports:
       - 3001:3001
     environment:
-      KAFKA_CLIENT_ID: kafka-test
+      KAFKA_CLIENT_ID: DISCORD
       KAFKA_BROKERS: kafka:9094
-      GROUP_ID: npm
+      GROUP_ID: NPM
       DISCORD_URL: https://discord.com/api/webhooks/923614009406677062/RCk2U5XXHZEaqiF9CMuMXHtV8_Z_r5oBSLZK5SbqUGlPXUld9OmC-neX9dHRgI38YwOm
-      TOPIC: npm-package
+      TOPICS: NPM_PACKAGE
       PORT: 3001

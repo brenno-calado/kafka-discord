@@ -21,7 +21,7 @@ export const handlePublish = async (event: NPMPackage & Application) => {
     const responses = await publish(
       event.event,
       [{
-        key: event.time,
+        key: event.event,
         value: JSON.stringify(event)
       }]
     )

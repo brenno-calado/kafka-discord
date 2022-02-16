@@ -20,9 +20,9 @@
     "paths": {
       "@config/*": ["config/*"],
       "@ports/*": ["ports/*"],
-      "@interfaces/*": ["interaces/*"]
+      "@interfaces/*": ["interfaces/*"]
     }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules/**/*", "consumer/**/*"]
+  "exclude": ["node_modules", "consumer"]
 }
