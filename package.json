@@ -1,0 +1,36 @@
+{
+  "name": "kafka-mini-project",
+  "version": "1.0.0",
+  "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
+  "main": "index.js",
+  "scripts": {
+    "tsc:watch": " tsc --watch",
+    "clean": "rm -rf dist/ && mkdir dist",
+    "build": "npm run clean && tsc --build tsconfig.json",
+    "start": "node ./dist/index.js",
+    "dev": "nodemon ./dist/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://brenno-calado@dev.azure.com/brenno-calado/kafka-mini-project/_git/kafka-mini-project"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "joi": "^17.5.0",
+    "kafkajs": "^1.15.0",
+    "winston": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "eslint": "^8.5.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
+  }
+}
