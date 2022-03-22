@@ -1,20 +1,69 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+<div id="top"></div>
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+  <h3 align="center">Kafka -> Discord Project</h3>
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+  <p align="center">
+    A project done to understand how Kafka works by producing messages and sending them to a discord server
+  </p>
+</div>
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+### Built With
+
+* [Node.js](https://nodejs.org/)
+* [Typescript](https://www.typescriptlang.org/)
+* [KafkaJS](https://kafka.js.org/)
+* [Docker](https://docs.docker.com/)
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+### Prerequisites
+
+Make sure you have Node, NPM, and Docker installed
+* NPM
+  ```sh
+  sudo apt install npm
+  ```
+* Node.js
+  ```sh
+  sudo apt install nodejs
+  ```
+* [Docker](https://docs.docker.com/engine/install/ubuntu/)
+
+
+### Installation
+
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+
+1. Clone the repository and enter the folder
+```sh
+git clone git@github.com:brenno-calado/kafka-discord.git && cd kafka-discord
+```
+2. Get a Discord bot url by accessing server config > integrations > webhooks > new webhook
+
+3. Copy the bot's name and the webhook url and put it in your .env file at consumer folder
+  example of environments for consumer:
+  - KAFKA_CLIENT_ID=DISCORD
+  - KAFKA_BROKERS=localhost:9092
+  - KAFKA_GROUP_ID=NPM
+  - DISCORD_URL=your-discord-url
+  - TOPICS=NPM_PACKAGE
+  - SERVER_PORT=9001
+  - ENVIRONMENT=dev
+
+  example of environments for producer:
+  - KAFKA_CLIENT_ID=DISCORD
+  - KAFKA_BROKERS=localhost:9092
+4. Install dependencies
+   ```sh
+   npm install
+   ```
+5. run your constainer orchestration
+  ```sh
+  docker-compose up
+  ```
+6. Watch for messages coming to your Discord server
