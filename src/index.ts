@@ -27,7 +27,7 @@ const main = async () => {
       version: '0.1.0',
       time: new Date()
     })
-  }, 1000)
+  }, 5000)
 
   app.listen(PORT || 3000, () => { console.log(`Server listening on port ${PORT || 3000}`) })
 
