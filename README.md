@@ -3,9 +3,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-
   <h3 align="center">Kafka -> Discord Project</h3>
 
+![Kafka Discord Demonstration](/demo.gif)
   <p align="center">
     A project done to understand how Kafka works by producing messages and sending them to a discord server
   </p>
